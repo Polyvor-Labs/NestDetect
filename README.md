@@ -101,9 +101,6 @@ NestDetect/
 └── pyproject.toml
 ```
 
-Virtual environments, COCO images, replay memory, pretrained YOLO weights, raw
-validation runs, caches, and intermediate checkpoints are excluded from Git.
-
 ## Installation
 
 Requirements:
