@@ -1,0 +1,40 @@
+{
+  "name": "NestDetect YOLO11n-HoPe with Replay",
+  "version": "2.0.0",
+  "sha256": "bc220eeb4fe73af4b362e88b4065000b824a0541432372cb94a337b8a18ec2ec",
+  "architecture": "YOLO11n-HoPe with Self-Referential Titans and a three-level Continuum Memory System",
+  "strategy": "Class-incremental learning with balanced replay memory",
+  "source_paper": "Nested Learning: The Illusion of Deep Learning Architectures (arXiv:2512.24695v1)",
+  "target_classes": {
+    "0": "person",
+    "56": "chair",
+    "60": "table",
+    "63": "laptop",
+    "73": "book"
+  },
+  "training": {
+    "base_epochs": 20,
+    "incremental_epochs": 25,
+    "imgsz": 480,
+    "batch": 4,
+    "device": "cpu",
+    "optimizer": "NestedAdamW",
+    "cms_update_periods": [1, 4, 16],
+    "lr0": 0.0001,
+    "weight_decay": 0.0005,
+    "freeze": 9,
+    "seed": 42,
+    "deterministic": true
+  },
+  "evaluation": {
+    "base_old_map50_95": 0.20369403677210138,
+    "no_replay_old_map50_95": 0.06390023749878906,
+    "no_replay_new_map50_95": 0.4348904037060778,
+    "old_classes_map50_95": 0.25720135481564166,
+    "new_classes_map50_95": 0.4431272703887409,
+    "forgetting_no_replay": 0.1397937993,
+    "forgetting_with_replay": -0.053507318
+  },
+  "dataset": "Curated lightweight subset of Microsoft COCO 2017",
+  "results": "results/hope/summary.json"
+}

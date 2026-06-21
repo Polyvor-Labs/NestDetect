@@ -1,0 +1,4 @@
+model,strategy,old_map50_95,new_map50_95,forgetting
+base_hope_coco80.pt,base,0.20369403677210138,,
+incremental_hope_no_replay_coco80.pt,no_replay,0.06390023749878906,0.4348904037060778,0.1397937993
+nestdetect_hope.pt,replay,0.25720135481564166,0.4431272703887409,-0.053507318

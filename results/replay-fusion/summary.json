@@ -1,0 +1,38 @@
+{
+  "architecture": "HoPe CMS V4 replay-teacher expert fusion",
+  "provenance": "replay-informed; not replay-free",
+  "validation_note": "The fusion scale was inspected on the same validation split; confirm gains on a held-out test set.",
+  "records": [
+    {
+      "model": "nestdetect_hope_cms_v4_replay_fusion.pt",
+      "group": "old",
+      "classes": "person, chair, dining table",
+      "precision": 0.7740426273737627,
+      "recall": 0.39439457925960936,
+      "map50": 0.510530367458966,
+      "map50_95": 0.2572547936251388,
+      "forgetting": null
+    },
+    {
+      "model": "nestdetect_hope_cms_v4_replay_fusion.pt",
+      "group": "new",
+      "classes": "laptop, book",
+      "precision": 0.6691010281594978,
+      "recall": 0.509597456913407,
+      "map50": 0.6092966507152484,
+      "map50_95": 0.44872630113286255,
+      "forgetting": null
+    }
+  ],
+  "comparison": [
+    {
+      "strategy": "replay_fusion",
+      "model": "nestdetect_hope_cms_v4_replay_fusion.pt",
+      "old_map50_95": 0.2572547936251388,
+      "new_map50_95": 0.44872630113286255,
+      "forgetting_vs_base": -0.0535607569,
+      "old_delta_vs_replay": 5.343880949715274e-05,
+      "new_delta_vs_replay": 0.005599030744121658
+    }
+  ]
+}

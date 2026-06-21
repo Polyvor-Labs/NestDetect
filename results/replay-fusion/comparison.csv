@@ -1,0 +1,2 @@
+strategy,model,old_map50_95,new_map50_95,forgetting
+replay_fusion,nestdetect_hope_cms_v4_replay_fusion.pt,0.2572547936251388,0.44872630113286255,-0.0535607569

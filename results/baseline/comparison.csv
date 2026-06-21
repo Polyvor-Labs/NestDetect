@@ -1,0 +1,4 @@
+model,strategy,old_map50_95,new_map50_95,forgetting
+base_coco80.pt,base,0.37777568533170636,,
+incremental_no_replay_coco80.pt,no_replay,0.1398837153142711,0.5224849682246161,0.23789197
+nestdetect_final.pt,replay,0.369141930459029,0.5264638364194376,0.0086337549

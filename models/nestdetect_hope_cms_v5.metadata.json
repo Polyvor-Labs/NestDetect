@@ -1,0 +1,40 @@
+{
+  "name": "NestDetect HoPe CMS V5",
+  "version": "2.0.0",
+  "sha256": "838252bae3f5f9df59749e32693dd8e10a7aec9e132bd26af98ed954ae93666a",
+  "architecture": "Conditional low-rank parameter memory over a YOLO11n-HoPe detector",
+  "strategy": "Replay-free class-routed persistent and plastic detector memories",
+  "provenance": "No old-task images are stored in or replayed by this checkpoint",
+  "source_models": {
+    "persistent": "artifacts/checkpoints/base_hope_coco80.pt",
+    "plastic": "models/nestdetect_hope_cms_only.pt"
+  },
+  "routing": {
+    "plastic_class_ids": [63, 73]
+  },
+  "compression": {
+    "max_rank": 32,
+    "minimum_energy": 0.999,
+    "parameter_count": 268,
+    "changed_parameter_count": 170,
+    "original_delta_elements": 2556560,
+    "stored_delta_elements": 738272,
+    "relative_l2_error": 0.0051662081309476185,
+    "compression_ratio": 3.4628971436001907
+  },
+  "target_classes": {
+    "0": "person",
+    "56": "chair",
+    "60": "table",
+    "63": "laptop",
+    "73": "book"
+  },
+  "evaluation": {
+    "old_classes_map50_95": 0.2035304109130628,
+    "new_classes_map50_95": 0.40992810840564264,
+    "forgetting_vs_hope_base": 0.0001636259
+  },
+  "dataset": "Curated lightweight subset of Microsoft COCO 2017",
+  "results": "results/cms/summary.json",
+  "contains_images": false
+}

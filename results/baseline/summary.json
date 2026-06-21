@@ -1,0 +1,71 @@
+{
+  "architecture": "YOLO11n with a preserved COCO80 detection head",
+  "protocol": {
+    "base_images": {
+      "train": 132,
+      "validation": 25
+    },
+    "new_class_images": {
+      "train": 107,
+      "validation": 21
+    },
+    "replay_images": {
+      "train": 104,
+      "validation": 22
+    }
+  },
+  "records": [
+    {
+      "model": "base_coco80.pt",
+      "group": "base_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.6480281048791636,
+      "recall": 0.5382380791885342,
+      "map50": 0.6280725192168921,
+      "map50_95": 0.37777568533170636,
+      "forgetting": null
+    },
+    {
+      "model": "nestdetect_final.pt",
+      "group": "replay_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.6717341657893167,
+      "recall": 0.5879836936459788,
+      "map50": 0.6537743954693492,
+      "map50_95": 0.369141930459029,
+      "forgetting": null
+    },
+    {
+      "model": "nestdetect_final.pt",
+      "group": "replay_new",
+      "classes": "laptop, book",
+      "precision": 0.7891144924376682,
+      "recall": 0.6180061572184419,
+      "map50": 0.732937686379204,
+      "map50_95": 0.5264638364194376,
+      "forgetting": null
+    },
+    {
+      "model": "incremental_no_replay_coco80.pt",
+      "group": "no_replay_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.0866619793250228,
+      "recall": 0.816047956088401,
+      "map50": 0.29867544284566644,
+      "map50_95": 0.1398837153142711,
+      "forgetting": null
+    },
+    {
+      "model": "incremental_no_replay_coco80.pt",
+      "group": "no_replay_new",
+      "classes": "laptop, book",
+      "precision": 0.6716053465952038,
+      "recall": 0.6557637217454051,
+      "map50": 0.6780866478030954,
+      "map50_95": 0.5224849682246161,
+      "forgetting": null
+    }
+  ],
+  "forgetting_no_replay": 0.23789197,
+  "forgetting_with_replay": 0.0086337549
+}

@@ -1,0 +1,3 @@
+model,group,classes,precision,recall,map50,map50_95,forgetting
+nestdetect_hope_cms_v4_replay_fusion.pt,old,"person, chair, dining table",0.7740426273737627,0.39439457925960936,0.510530367458966,0.2572547936251388,
+nestdetect_hope_cms_v4_replay_fusion.pt,new,"laptop, book",0.6691010281594978,0.509597456913407,0.6092966507152484,0.44872630113286255,

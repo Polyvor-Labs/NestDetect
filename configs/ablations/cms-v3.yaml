@@ -1,0 +1,58 @@
+project_root: ../..
+
+model:
+  initial: artifacts/checkpoints/base_hope_coco80.pt
+
+dataset:
+  data: datasets/incremental_no_replay_coco80/data.yaml
+
+optimizer:
+  name: nested_adamw
+  beta2: 0.999
+  eps: 1.0e-8
+
+continual:
+  teacher: artifacts/checkpoints/base_hope_coco80.pt
+  consolidation_artifact: artifacts/cms/base_hope_coco80_consolidation.pt
+  persistent_memory:
+    enabled: true
+    capture: false
+    momentum: 0.995
+    consolidated_strength: 0.10
+    working_strength: 0.02
+    lock_slowest: true
+  distillation:
+    old_class_ids: [0, 56, 60]
+    trainable_class_ids: [63, 73]
+    freeze_shared_parameters: true
+    temperature: 2.0
+    score_weight: 0.50
+    feature_weight: 1.00
+    regularization_weight: 0.10
+
+training:
+  epochs: 25
+  imgsz: 480
+  batch: 4
+  device: cpu
+  workers: 0
+  patience: 10
+  lr0: 0.0002
+  lrf: 0.05
+  momentum: 0.9
+  weight_decay: 0.0
+  freeze: 9
+  classes: [0, 56, 60, 63, 73]
+  warmup_epochs: 2
+  close_mosaic: 5
+  cos_lr: true
+  amp: false
+  seed: 42
+  deterministic: true
+  plots: true
+
+output:
+  model: models/nestdetect_hope_cms_only_v3.pt
+  runs_dir: artifacts/runs
+  run_name: incremental_hope_cms_only_v3_coco80
+  exist_ok: true

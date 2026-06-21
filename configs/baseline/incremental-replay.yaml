@@ -1,0 +1,34 @@
+project_root: ../..
+
+model:
+  initial: artifacts/checkpoints/base_coco80.pt
+
+dataset:
+  data: datasets/incremental_replay_baseline_coco80/data.yaml
+
+training:
+  epochs: 15
+  imgsz: 480
+  batch: 8
+  device: cpu
+  workers: 0
+  patience: 6
+  optimizer: AdamW
+  lr0: 0.0002
+  lrf: 0.05
+  weight_decay: 0.0005
+  freeze: 22
+  classes: [0, 56, 60, 63, 73]
+  warmup_epochs: 1
+  close_mosaic: 4
+  cos_lr: true
+  amp: false
+  seed: 42
+  deterministic: true
+  plots: true
+
+output:
+  model: models/nestdetect_final.pt
+  runs_dir: artifacts/runs
+  run_name: incremental_coco80
+  exist_ok: true

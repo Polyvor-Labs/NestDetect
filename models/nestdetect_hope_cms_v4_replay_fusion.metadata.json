@@ -1,0 +1,32 @@
+{
+  "name": "NestDetect HoPe CMS V4 Replay-Fusion",
+  "version": "2.0.0",
+  "sha256": "7cc3eb592d566133f6ac62d9d4cb5d4a4e84d9f09828ca01285385e10a012db1",
+  "architecture": "Class-routed ensemble of two YOLO11n-HoPe detector memories",
+  "strategy": "Replay-informed persistent teacher with a no-replay plastic specialist",
+  "provenance": "Replay-informed; this checkpoint is not replay-free",
+  "source_models": {
+    "persistent": "models/nestdetect_hope.pt",
+    "plastic": "artifacts/checkpoints/incremental_hope_no_replay_coco80.pt"
+  },
+  "routing": {
+    "plastic_class_ids": [63, 73],
+    "fuse_persistent_plastic_classes": true,
+    "plastic_score_scale": 1.0
+  },
+  "target_classes": {
+    "0": "person",
+    "56": "chair",
+    "60": "table",
+    "63": "laptop",
+    "73": "book"
+  },
+  "evaluation": {
+    "old_classes_map50_95": 0.2572547936251388,
+    "new_classes_map50_95": 0.44872630113286255,
+    "forgetting_vs_hope_base": -0.0535607569
+  },
+  "dataset": "Curated lightweight subset of Microsoft COCO 2017",
+  "results": "results/replay-fusion/summary.json",
+  "contains_images": false
+}

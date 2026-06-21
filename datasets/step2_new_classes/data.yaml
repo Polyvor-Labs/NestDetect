@@ -1,0 +1,6 @@
+path: datasets/step2_new_classes
+train: images/train
+val: images/val
+names:
+  0: laptop
+  1: book

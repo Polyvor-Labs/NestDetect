@@ -1,0 +1,7 @@
+path: datasets/step1_base
+train: images/train
+val: images/val
+names:
+  0: person
+  1: chair
+  2: table

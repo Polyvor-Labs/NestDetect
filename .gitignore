@@ -1,0 +1,62 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local configuration
+.env
+.env.*
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.agents/
+.codex/
+
+# Build outputs
+build/
+dist/
+
+# Training and evaluation artifacts
+artifacts/
+runs/
+yolo*.pt
+*.cache
+*.pdf
+
+# Generated datasets and replay memory
+datasets/**/images/
+datasets/**/labels/
+datasets/base_coco80/
+datasets/new_coco80/
+datasets/incremental_no_replay_coco80/
+datasets/incremental_replay_baseline_coco80/
+datasets/incremental_replay_hope_coco80/
+memory/
+
+# Generated inference and validation outputs
+results/detection_outputs/
+results/**/.generated/
+results/**/eval_views/
+results/**/validation/
+
+# Model policy: publish only the four documented checkpoints
+models/*.pt
+models/*.metadata.json
+!models/nestdetect_final.pt
+!models/nestdetect_final.metadata.json
+!models/nestdetect_hope.pt
+!models/nestdetect_hope.metadata.json
+!models/nestdetect_hope_cms_only_v4.pt
+!models/nestdetect_hope_cms_only_v4.metadata.json
+!models/nestdetect_hope_cms_v5.pt
+!models/nestdetect_hope_cms_v5.metadata.json
+!models/nestdetect_hope_cms_v4_replay_fusion.pt
+!models/nestdetect_hope_cms_v4_replay_fusion.metadata.json

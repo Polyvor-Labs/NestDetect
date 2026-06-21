@@ -1,0 +1,49 @@
+project_root: ../..
+
+model:
+  initial: artifacts/checkpoints/base_hope_coco80.pt
+
+dataset:
+  data: datasets/incremental_no_replay_coco80/data.yaml
+
+optimizer:
+  name: nested_adamw
+  beta2: 0.999
+  eps: 1.0e-8
+
+continual:
+  # Equation 74: an immutable persistent head and an independent plastic head.
+  # Only the selected class logits are routed through the plastic branch.
+  headwise_cms:
+    enabled: true
+    plastic_class_ids: [63, 73]
+    initialization_model: yolo11n.pt
+    # Slow representation -> medium representation -> fast output classifier.
+    update_periods: [16, 4, 1]
+
+training:
+  epochs: 40
+  imgsz: 480
+  batch: 4
+  device: cpu
+  workers: 0
+  patience: 12
+  lr0: 0.001
+  lrf: 0.05
+  momentum: 0.9
+  weight_decay: 0.0005
+  freeze: 0
+  classes: [63, 73]
+  warmup_epochs: 2
+  close_mosaic: 5
+  cos_lr: true
+  amp: false
+  seed: 42
+  deterministic: true
+  plots: true
+
+output:
+  model: models/nestdetect_hope_cms_headwise_ablation.pt
+  runs_dir: artifacts/runs
+  run_name: incremental_hope_cms_headwise_ablation_coco80
+  exist_ok: true

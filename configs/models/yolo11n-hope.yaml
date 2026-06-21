@@ -1,0 +1,44 @@
+# YOLO11n detector with a HoPe bottleneck.
+# HoPe follows the paper's ordering:
+# Self-Referential Titans -> sequential Continuum Memory System.
+
+nc: 80
+scale: n
+scales:
+  n: [0.50, 0.25, 1024]
+
+backbone:
+  - [-1, 1, Conv, [64, 3, 2]]
+  - [-1, 1, Conv, [128, 3, 2]]
+  - [-1, 2, C3k2, [256, false, 0.25]]
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [-1, 2, C3k2, [512, false, 0.25]]
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [-1, 2, C3k2, [512, true]]
+  - [-1, 1, Conv, [1024, 3, 2]]
+  - [-1, 2, C3k2, [1024, true]]
+  - [-1, 1, SPPF, [1024, 5]]
+  # Explicit channel count is 1024 * the n width multiplier (0.25) = 256.
+  # args: channels, memory_dim, hidden_dim, memory_chunk, projection_chunk,
+  #       cms_hidden, cms_update_periods, local_kernel, inner_lr,
+  #       minimum_retention, momentum, DGD_decay
+  - [-1, 1, Hope2D, [256, 64, 128, 16, 64, 128, [1, 4, 16], 4, 0.05, 0.95, 0.9, 1.0]]
+
+head:
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]
+  - [[-1, 6], 1, Concat, [1]]
+  - [-1, 2, C3k2, [512, false]]
+
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]
+  - [[-1, 4], 1, Concat, [1]]
+  - [-1, 2, C3k2, [256, false]]
+
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 13], 1, Concat, [1]]
+  - [-1, 2, C3k2, [512, false]]
+
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 10], 1, Concat, [1]]
+  - [-1, 2, C3k2, [1024, true]]
+
+  - [[16, 19, 22], 1, Detect, [nc]]

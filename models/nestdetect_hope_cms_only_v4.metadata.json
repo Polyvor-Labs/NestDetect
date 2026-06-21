@@ -1,0 +1,32 @@
+{
+  "name": "NestDetect HoPe CMS V4",
+  "version": "2.0.0",
+  "sha256": "6642d4a67a5cdcddaa914a80dd7c0fc906a1a4ca9c608abac17bab11027041e0",
+  "architecture": "Class-routed ensemble of persistent and plastic YOLO11n-HoPe detector memories",
+  "strategy": "Replay-free routed detector memories",
+  "provenance": "No old-task images are stored in or replayed by this checkpoint",
+  "source_models": {
+    "persistent": "artifacts/checkpoints/base_hope_coco80.pt",
+    "plastic": "models/nestdetect_hope_cms_only.pt"
+  },
+  "routing": {
+    "persistent_class_ids": [0, 56, 60],
+    "plastic_class_ids": [63, 73],
+    "fuse_persistent_plastic_classes": false
+  },
+  "target_classes": {
+    "0": "person",
+    "56": "chair",
+    "60": "table",
+    "63": "laptop",
+    "73": "book"
+  },
+  "evaluation": {
+    "old_classes_map50_95": 0.2037134194000484,
+    "new_classes_map50_95": 0.4096689747352686,
+    "forgetting_vs_hope_base": -0.0000193826
+  },
+  "dataset": "Curated lightweight subset of Microsoft COCO 2017",
+  "results": "results/cms/summary.json",
+  "contains_images": false
+}

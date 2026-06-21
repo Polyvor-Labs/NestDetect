@@ -1,0 +1,71 @@
+{
+  "architecture": "YOLO11n-HoPe",
+  "protocol": {
+    "base_images": {
+      "train": 132,
+      "validation": 25
+    },
+    "new_class_images": {
+      "train": 107,
+      "validation": 21
+    },
+    "replay_images": {
+      "train": 55,
+      "validation": 11
+    }
+  },
+  "records": [
+    {
+      "model": "base_hope_coco80.pt",
+      "group": "base_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.34377816643188,
+      "recall": 0.5310781636316412,
+      "map50": 0.4396347561998007,
+      "map50_95": 0.20369403677210138,
+      "forgetting": null
+    },
+    {
+      "model": "nestdetect_hope.pt",
+      "group": "replay_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.7740426273737627,
+      "recall": 0.39439457925960936,
+      "map50": 0.51043246789945,
+      "map50_95": 0.25720135481564166,
+      "forgetting": null
+    },
+    {
+      "model": "nestdetect_hope.pt",
+      "group": "replay_new",
+      "classes": "laptop, book",
+      "precision": 0.4945812759922914,
+      "recall": 0.6554160125588697,
+      "map50": 0.5934981403783713,
+      "map50_95": 0.4431272703887409,
+      "forgetting": null
+    },
+    {
+      "model": "incremental_hope_no_replay_coco80.pt",
+      "group": "no_replay_old",
+      "classes": "person, chair, dining table",
+      "precision": 0.07179132040627885,
+      "recall": 0.5616864878745566,
+      "map50": 0.15154980905908352,
+      "map50_95": 0.06390023749878906,
+      "forgetting": null
+    },
+    {
+      "model": "incremental_hope_no_replay_coco80.pt",
+      "group": "no_replay_new",
+      "classes": "laptop, book",
+      "precision": 0.4414862856651992,
+      "recall": 0.6554160125588697,
+      "map50": 0.5926991587404168,
+      "map50_95": 0.4348904037060778,
+      "forgetting": null
+    }
+  ],
+  "forgetting_no_replay": 0.1397937993,
+  "forgetting_with_replay": -0.053507318
+}

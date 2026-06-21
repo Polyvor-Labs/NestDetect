@@ -1,0 +1,49 @@
+{
+  "dataset": "Microsoft COCO 2017 curated lightweight subset",
+  "stage": "base",
+  "classes": [
+    "person",
+    "chair",
+    "table"
+  ],
+  "coco_class_ids": {
+    "person": 0,
+    "chair": 56,
+    "table": 60
+  },
+  "excluded_coco_class_ids": [
+    63,
+    73
+  ],
+  "selection": {
+    "train_images_per_class_minimum": 60,
+    "val_images_per_class_minimum": 12,
+    "seed": 42,
+    "cross_stage_target_classes_excluded": true,
+    "class_area_rules": {
+      "person": {
+        "select_min_area": 0.05,
+        "select_max_area": 0.8,
+        "label_min_area": 0.01
+      },
+      "chair": {
+        "select_min_area": 0.05,
+        "select_max_area": 0.75,
+        "label_min_area": 0.01
+      },
+      "table": {
+        "select_min_area": 0.08,
+        "select_max_area": 0.75,
+        "label_min_area": 0.02
+      }
+    }
+  },
+  "source": "https://cocodataset.org/",
+  "terms": "https://cocodataset.org/#termsofuse",
+  "paper": "https://arxiv.org/abs/1405.0312",
+  "labels_source": "https://github.com/ultralytics/assets/releases/download/v0.0.0/coco2017labels.zip",
+  "image_count": {
+    "train": 132,
+    "val": 25
+  }
+}

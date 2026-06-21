@@ -1,0 +1,33 @@
+{
+  "name": "NestDetect YOLO11n Replay Baseline",
+  "version": "1.0.0",
+  "sha256": "fc2bd88048960dca96044da9bd177aa0da9cbfae3ae17580e7076c126e081ff5",
+  "architecture": "YOLO11n with a preserved COCO80 detection head",
+  "strategy": "Class-incremental learning with balanced replay memory",
+  "target_classes": {
+    "0": "person",
+    "56": "chair",
+    "60": "table",
+    "63": "laptop",
+    "73": "book"
+  },
+  "training": {
+    "base_epochs": 8,
+    "incremental_epochs": 15,
+    "imgsz": 480,
+    "batch": 8,
+    "optimizer": "AdamW",
+    "lr0": 0.0002,
+    "weight_decay": 0.0005,
+    "freeze": 22,
+    "seed": 42,
+    "deterministic": true
+  },
+  "evaluation": {
+    "old_classes_map50_95": 0.369141930459029,
+    "new_classes_map50_95": 0.5264638364194376,
+    "forgetting": 0.0086337549
+  },
+  "dataset": "Curated lightweight subset of Microsoft COCO 2017",
+  "results": "results/baseline/summary.json"
+}
