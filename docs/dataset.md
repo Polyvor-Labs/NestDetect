@@ -69,8 +69,6 @@ datasets/
 └── incremental_replay_hope_coco80/
 ```
 
-Image and label directories are excluded from Git. Source manifests and metadata
-under `step1_base/` and `step2_new_classes/` remain publishable.
 
 ## Rebuild
 
