@@ -200,3 +200,11 @@ are documented in [docs/dataset.md](docs/dataset.md).
 - [COCO paper](https://arxiv.org/abs/1405.0312)
 - [Ultralytics YOLO documentation](https://docs.ultralytics.com/)
 - [Streamlit](https://docs.streamlit.io/)
+
+
+
+## Citation
+
+If you use this work, please cite:
+
+Athallah, Z. H. (2026). *NestDetect: Mengurangi Catastrophic Forgetting pada YOLO melalui Nested Learning dan Conditional Memory Systems* (1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20829921
