@@ -207,4 +207,4 @@ are documented in [docs/dataset.md](docs/dataset.md).
 
 If you use this work, please cite:
 
-Athallah, Z. H. (2026). *NestDetect: Mengurangi Catastrophic Forgetting pada YOLO melalui Nested Learning dan Conditional Memory Systems* (1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20829921
+Athallah, Z. H. (2026). NestDetect: Mengurangi Catastrophic Forgetting pada YOLO melalui Nested Learning dan Continuum Memory System. Zenodo. https://doi.org/10.5281/zenodo.20958461
